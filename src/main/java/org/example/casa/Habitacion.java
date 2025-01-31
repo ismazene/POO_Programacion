@@ -6,12 +6,13 @@ class Habitacion {
 
     public Habitacion(String nombre, double metrosCuadrados) {
         this.nombre = nombre;
-
+        this.metrosCuadrados = metrosCuadrados; // Se corrigió la falta de asignación
     }
 
     public String getNombre() {
         return nombre;
     }
+
     public double getMetrosCuadrados() {
         return metrosCuadrados;
     }
@@ -19,12 +20,13 @@ class Habitacion {
     public void setMetrosCuadrados(double metrosCuadrados) {
         this.metrosCuadrados = metrosCuadrados;
     }
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
     @Override
     public String toString() {
-        return nombre;
+        return nombre + " (" + metrosCuadrados + " m²)";
     }
 }
