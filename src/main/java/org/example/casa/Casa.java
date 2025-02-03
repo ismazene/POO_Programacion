@@ -64,7 +64,7 @@ class Casa {
 
     public Habitacion habitacionMasGrande() {
         if (habitaciones.isEmpty()) {
-            return null; // Manejo de posible lista vacía
+            return null;
         }
 
         Habitacion aux = habitaciones.get(0);

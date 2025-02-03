@@ -6,7 +6,7 @@ class Habitacion {
 
     public Habitacion(String nombre, double metrosCuadrados) {
         this.nombre = nombre;
-        this.metrosCuadrados = metrosCuadrados; // Se corrigió la falta de asignación
+        this.metrosCuadrados = metrosCuadrados;
     }
 
     public String getNombre() {
