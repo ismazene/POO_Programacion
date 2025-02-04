@@ -43,7 +43,6 @@ class Casa {
     }
 
     public void agregarHabitacion(String nombre, int metros) {
-        // Verificar si la habitación ya existe antes de agregarla
         for (Habitacion habitacion : habitaciones) {
             if (habitacion.getNombre().equals(nombre)) {
                 System.out.println("La habitación ya existe");

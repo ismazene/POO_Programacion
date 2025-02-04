@@ -2,12 +2,17 @@ package org.example.Practica1;
 
 public class Empleado {
     //Contador en estatico para que siempre se instancie un numero mas cada vez que se llama al metodo
-    private static int cont = 1;
     private String id;
     private String nombre;
     private String cargo;
     private Empleado director;
 
+    public Empleado(String id, Empleado director, String cargo, String nombre) {
+        this.id = id;
+        this.director = director;
+        this.cargo = cargo;
+        this.nombre = nombre;
+    }
 
     public String getId() {
         return id;
@@ -42,21 +47,13 @@ public class Empleado {
         this.director = director;
     }
 
-    public Empleado(String id, Empleado director, String cargo, String nombre) {
-        this.id = id;
-        this.director = director;
-        this.cargo = cargo;
-        this.nombre = nombre;
-    }
-
-    public Empleado(String nombre) {
-        this.nombre = nombre;
-        generarId();
-    }
-
-    public void generarId(){
-        id = "EP" + cont;
-        cont ++;
-
+    @Override
+    public String toString() {
+        return "Empleado{" +
+                "id='" + id + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", cargo='" + cargo + '\'' +
+                ", director=" + director +
+                '}';
     }
 }

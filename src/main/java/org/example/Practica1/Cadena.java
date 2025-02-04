@@ -5,6 +5,13 @@ public class Cadena {
     private String nombre;
     private ArrayList<Programa> listaProgramas;
 
+    public Cadena (String nombre){
+
+        this.nombre=nombre;
+        listaProgramas =null;
+        listaProgramas = new ArrayList<>();
+    }
+
     public String getNombre() {
         return nombre;
     }
@@ -19,10 +26,11 @@ public class Cadena {
         this.listaProgramas = listaProgramas;
     }
 
-    public Cadena (String nombre){
-
-        this.nombre=nombre;
-        listaProgramas =null;
-        listaProgramas = new ArrayList<>();
+    @Override
+    public String toString() {
+        return "Cadena{" +
+                "nombre='" + nombre + '\'' +
+                ", listaProgramas=" + listaProgramas +
+                '}';
     }
 }

@@ -8,6 +8,14 @@ public class Invitado {
     private LocalDate fecha_visita;
     private int temporada;
 
+    public Invitado(String nombre, String profesion, int temporada) {
+        this.nombre = nombre;
+        this.profesion = profesion;
+        this.temporada = temporada;
+        this.fecha_visita = LocalDate.now();
+
+    }
+
     public int getTemporada() {
         return temporada;
     }
@@ -36,12 +44,13 @@ public class Invitado {
         this.nombre = nombre;
     }
 
-    public Invitado(String nombre,String profesion, int temporada, LocalDate fecha_visita) {
-        this.nombre = nombre;
-        this.profesion = profesion;
-        this.temporada = temporada;
-        this.fecha_visita = fecha_visita;
-
+    @Override
+    public String toString() {
+        return "Invitado{" +
+                "nombre='" + nombre + '\'' +
+                ", profesion='" + profesion + '\'' +
+                ", fecha_visita=" + fecha_visita +
+                ", temporada=" + temporada +
+                '}';
     }
-
 }
