@@ -125,16 +125,17 @@ public class Programa {
         listaEmpleados.remove(empleado);
     }
 
-    public String generarId() {
-        if (cantidadLibros < 10) {
-            return ID_LIBROS + "00" + cantidadLibros;
-        } else if (cantidadLibros < 100) {
-            return ID_LIBROS + "0" + cantidadLibros;
-        } else {
-            return ID_LIBROS + cantidadLibros;
-        }
-
-        return ID_LIBROS + String.format("%03d", cantidadLibros);
+    //MODIFICAR GENERAR ID
+//    public String generarId() {
+//        if (cantidadLibros < 10) {
+//            return ID_LIBROS + "00" + cantidadLibros;
+//        } else if (cantidadLibros < 100) {
+//            return ID_LIBROS + "0" + cantidadLibros;
+//        } else {
+//            return ID_LIBROS + cantidadLibros;
+//        }
+//
+//        return ID_LIBROS + String.format("%03d", cantidadLibros);
 
 
 
@@ -151,4 +152,4 @@ public class Programa {
     }
 
 }
-    }
+
