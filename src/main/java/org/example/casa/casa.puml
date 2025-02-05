@@ -1,0 +1,50 @@
+@startuml
+package org.example.casa {
+
+class Casa {
+    - String direccion
+    - List<Habitacion> habitaciones
+    - Propietario propietario
+    + Casa(String direccion)
+    + List<Habitacion> getHabitaciones()
+    + void setHabitaciones(List<Habitacion> habitaciones)
+    + Propietario getPropietario()
+    + void setPropietario(Scanner teclado)
+    + String getDireccion()
+    + void setDireccion(String direccion)
+    + void agregarHabitacion(String nombre, int metros)
+    + void mostrarHabitaciones()
+    + Habitacion habitacionMasGrande()
+    + void eliminarHabitacion(String nombre)
+}
+
+class Habitacion {
+    - String nombre
+    - double metrosCuadrados
+    + Habitacion(String nombre, double metrosCuadrados)
+    + String getNombre()
+    + void setNombre(String nombre)
+    + double getMetrosCuadrados()
+    + void setMetrosCuadrados(double metrosCuadrados)
+    + String toString()
+}
+
+class Propietario {
+    - String nombre
+    - int edad
+    + Propietario(String nombre, int edad)
+    + String getNombre()
+    + void setNombre(String nombre)
+    + int getEdad()
+    + void setEdad(int edad)
+    + String toString()
+}
+
+class Main {
+    + main(String[] args)
+}
+
+Casa "1" -- "1" Propietario
+Casa "1" -- "*" Habitacion
+Main ..> Casa : "Usa"
+@enduml
