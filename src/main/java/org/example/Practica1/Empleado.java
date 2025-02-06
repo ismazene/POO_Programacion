@@ -1,12 +1,14 @@
 package org.example.Practica1;
 
 public class Empleado {
+
+    //Creamos los atributos
     private String id;
     private String nombre;
     private String cargo;
     private Empleado director;
 
-    // Constructor que inicializa los atributos id, director, cargo y nombre del empleado
+    // Constructor
     public Empleado(String id, Empleado director, String cargo, String nombre) {
         this.id = id;
         this.director = director;

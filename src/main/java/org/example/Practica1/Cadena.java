@@ -2,10 +2,12 @@ package org.example.Practica1;
 import java.util.ArrayList;
 
 public class Cadena {
-    private String nombre; // Nombre de la cadena
-    private static ArrayList<Programa> listaProgramas; // Lista de programas de la cena
 
-    // Constructor que inicializa el nombre de la cadena y la lista de programas
+    //Creamos los atributos
+    private String nombre;
+    private static ArrayList<Programa> listaProgramas;
+
+    // Constructor
     public Cadena(String nombre) {
         this.nombre = nombre;
         listaProgramas = null;

@@ -6,13 +6,14 @@ import java.util.Scanner;
 
 public class Programa {
 
+    //Creamos los atributos
     private static int cont = 1; // Contador estatico para generar los ID
-    private String nombre; // Nombre del programa
-    private Cadena cadena; // Cadena de televisión
-    private int temporadas; // Número de temporadas del programa
+    private String nombre;
+    private Cadena cadena;
+    private int temporadas;
     private ArrayList<Empleado> listaEmpleados;
     private ArrayList<Invitado> listaInvitados;
-    private Empleado director; // El director del programa
+    private Empleado director;
 
     // Constructor
     public Programa(String nombre, Cadena cadena) {
@@ -85,23 +86,72 @@ public class Programa {
         listaInvitados.remove(invitado);
     }
 
-    // Metodo para crear un invitado y añadirlo a la lista
+    // Metodo para crear un invitado y añadirlo a la lista, hacemos tambien la verificaion de las fechas para qu no sea menor de 2025, y que los meses esten entre el 1 y el 12
+    // y por ultimo los dias son entre 1 y 31
     public void crearInvitados(String profesion, int temporada) {
         Scanner teclado = new Scanner(System.in);
 
         System.out.println("Introduce el nombre del invitado:");
         String nombre_invitado = teclado.next();
 
-        System.out.println("Introduce el año en el que acude el invitado " + nombre_invitado);
-        int anio = teclado.nextInt();
+        int anio = 0;
+        boolean anioValido = false;
+        while (!anioValido) {
+            System.out.println("Introduce el año en el que acude el invitado " + nombre_invitado);
+            try {
+                anio = teclado.nextInt();
+            } catch (Exception e) {
+                System.out.println("Introduce un valor valido");
+                teclado.next();
+                continue;
+            }
 
-        System.out.println("Introduce el mes:");
-        int mes = teclado.nextInt();
+            if (anio >= 2025) {
+                anioValido = true;
+            } else {
+                System.out.println("El año debe ser mayor o igual a 2025");
+            }
+        }
 
-        System.out.println("Introduce el día:");
-        int dia = teclado.nextInt();
+        int mes = 0;
+        boolean mesValido = false;
+        while (!mesValido) {
+            System.out.println("Introduce el mes:");
+            try {
+                mes = teclado.nextInt();
+            } catch (Exception e) {
+                System.out.println("Introduce un valor valido");
+                teclado.next();
+                continue;
+            }
 
-        // Crea la fecha con la info proporcionado por el usuario
+            if (mes >= 1 && mes <= 12) {
+                mesValido = true;
+            } else {
+                System.out.println("El mes debe estar entre 1 y 12");
+            }
+        }
+
+        int dia = 0;
+        boolean diaValido = false;
+        while (!diaValido) {
+            System.out.println("Introduce el dia:");
+            try {
+                dia = teclado.nextInt();
+            } catch (Exception e) {
+                System.out.println("Introduce un valor valido");
+                teclado.next();
+                continue;
+            }
+
+            if (dia >= 1 && dia <= 31) {
+                diaValido = true;
+            } else {
+                System.out.println("El dia debe estar entre 1 y 31");
+            }
+        }
+
+        // Crea la fecha
         LocalDate fechaVisita = LocalDate.of(anio, mes, dia);
 
         // Crea un nuevo invitado y lo agrega a la lista
@@ -142,7 +192,7 @@ public class Programa {
         listaEmpleados.remove(empleado);
     }
 
-    // Metodo para listar los invitados de una temporada específica
+    // Metodo para listar los invitados de una temporada especifica
     public void invitadosTemporada(int temporada) {
         int cont = 0;
         System.out.println("Invitados en la temporada " + temporada);
@@ -203,7 +253,7 @@ public class Programa {
 
     // Metodo para generar un ID
     public String generarId() {
-        return "EP" + String.format("%03d", cont++); // Genera un ID con formato "EP001", "EP002", etc.
+        return "EP" + String.format("%03d", cont++); // Genera un ID con formato EP001...
     }
 
     @Override
@@ -215,7 +265,7 @@ public class Programa {
                 ", listaEmpleados=" + listaEmpleados +
                 ", listaInvitados=" + listaInvitados +
                 ", director=" + director +
-                '}'; // Devuelve una representación en forma de cadena del objeto
+                '}';
     }
 
 }

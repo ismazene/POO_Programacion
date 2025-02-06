@@ -3,6 +3,8 @@ package org.example.Practica1;
 import java.time.LocalDate;
 
 public class Invitado {
+
+    // Creacion de atributos
     private String nombre;
     private String profesion;
     private LocalDate fecha_visita;
