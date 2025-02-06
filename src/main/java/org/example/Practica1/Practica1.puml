@@ -1,0 +1,95 @@
+@startuml
+
+' Definición de la clase Cadena
+class Cadena {
+    -String nombre
+    -static ArrayList<Programa> listaProgramas
+    +Cadena(String nombre)
+    +String getNombre()
+    +void setNombre(String nombre)
+    +static ArrayList<Programa> getListaProgramas()
+    +void setListaProgramas(ArrayList<Programa> listaProgramas)
+    +void anyadirPrograma(Programa programa)
+    +void eliminaPrograma(Programa programa)
+    +String toString()
+}
+
+' Definición de la clase Empleado
+class Empleado {
+    -String id
+    -String nombre
+    -String cargo
+    -Empleado director
+    +Empleado(String id, Empleado director, String cargo, String nombre)
+    +String getId()
+    +void setId(String id)
+    +String getNombre()
+    +void setNombre(String nombre)
+    +String getCargo()
+    +void setCargo(String cargo)
+    +Empleado getDirector()
+    +void setDirector(Empleado director)
+    +String toString()
+}
+
+' Definición de la clase Programa
+class Programa {
+    -static int cont
+    -String nombre
+    -Cadena cadena
+    -int temporadas
+    -ArrayList<Empleado> listaEmpleados
+    -ArrayList<Invitado> listaInvitados
+    -Empleado director
+    +Programa(String nombre, Cadena cadena)
+    +ArrayList<Invitado> getListaInvitados()
+    +void setListaInvitados(ArrayList<Invitado> listaInvitados)
+    +Empleado getDirector()
+    +void setDirector(Empleado director)
+    +ArrayList<Empleado> getListaEmpleados()
+    +void setListaEmpleados(ArrayList<Empleado> listaEmpleados)
+    +int getTemporadas()
+    +void setTemporadas(int temporadas)
+    +Cadena getCadena()
+    +void setCadena(Cadena cadena)
+    +String getNombre()
+    +void setNombre(String nombre)
+    +void anyadirInvitado(Invitado invitado)
+    +void borrarInvitado(Invitado invitado)
+    +void crearInvitados(String profesion, int temporada)
+    +void crearEmpleados(String cargo)
+    +void anyadirEmpleado(Empleado empleado)
+    +void borrarEmpleado(Empleado empleado)
+    +void invitadosTemporada(int temporada)
+    +int vecesInvitado(String nombre)
+    +void rastrearInvitado(String nombre)
+    +boolean buscarInvitado(String nombre)
+    +String generarId()
+    +String toString()
+}
+
+' Definición de la clase Invitado
+class Invitado {
+    -String nombre
+    -String profesion
+    -LocalDate fecha_visita
+    -int temporada
+    +Invitado(String nombre, String profesion, int temporada, LocalDate fechaVisita)
+    +int getTemporada()
+    +void setTemporada(int temporada)
+    +LocalDate getFecha_visita()
+    +void setFecha_visita(LocalDate fecha_visita)
+    +String getProfesion()
+    +void setProfesion(String profesion)
+    +String getNombre()
+    +void setNombre(String nombre)
+    +String toString()
+    +String getFechaVisita()
+}
+
+Cadena "1" -- "0..*" Programa : contiene
+Programa "1" -- "0..*" Empleado : tiene
+Empleado "1" -- "0..1" Empleado : es dirigido por
+Programa "1" -- "0..*" Invitado : tiene
+
+@enduml
