@@ -2,28 +2,41 @@ package org.example.Practica1;
 import java.util.ArrayList;
 
 public class Cadena {
-    private String nombre;
-    private ArrayList<Programa> listaProgramas;
+    private String nombre; // Nombre de la cadena
+    private static ArrayList<Programa> listaProgramas; // Lista de programas de la cena
 
-    public Cadena (String nombre){
-
-        this.nombre=nombre;
-        listaProgramas =null;
-        listaProgramas = new ArrayList<>();
+    // Constructor que inicializa el nombre de la cadena y la lista de programas
+    public Cadena(String nombre) {
+        this.nombre = nombre;
+        listaProgramas = null;
+        listaProgramas = new ArrayList<>(); // Lista de programas
     }
 
+    // Metodos getter y setter
     public String getNombre() {
         return nombre;
     }
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    public ArrayList<Programa> getListaProgramas() {
+    public static ArrayList<Programa> getListaProgramas() {
         return listaProgramas;
     }
+
     public void setListaProgramas(ArrayList<Programa> listaProgramas) {
         this.listaProgramas = listaProgramas;
+    }
+
+    // Metodo para añadir un programa
+    public void anyadirPrograma(Programa programa) {
+        listaProgramas.add(programa);
+    }
+
+    // Metodo para eliminar un programa
+    public void eliminaPrograma(Programa programa) {
+        listaProgramas.remove(programa);
     }
 
     @Override
@@ -31,6 +44,6 @@ public class Cadena {
         return "Cadena{" +
                 "nombre='" + nombre + '\'' +
                 ", listaProgramas=" + listaProgramas +
-                '}';
+                '}'; // Devuelve una cadena con la información de la cadena y sus programas
     }
 }
