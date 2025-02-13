@@ -7,7 +7,7 @@ public class Cosas_AR {
 
     public static void main (String[] args){
 
-        ArrayList<Integer> listaNums = new ArrayList<>();
+        ArrayList<String> listaNums = new ArrayList<>();
 
         listaNums.add(3);
         listaNums.add(10);
